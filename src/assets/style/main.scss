@@ -1,0 +1,9 @@
+@use './settings/transitions';
+
+@use './base/index' as base;
+
+@use './components/movieList/index' as movieList;
+@use './components/movieListItem/index' as movieListItem;
+@use './components/pagination/index' as pagination;
+@use './components/button/index' as button;
+@use './components/input/index' as input;

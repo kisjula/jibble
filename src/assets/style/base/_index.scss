@@ -1,0 +1,52 @@
+@use './variables' as *;
+@use '@/assets/style/settings/colors' as colors;
+body {
+    background-color: $body-background;
+    color: colors.$primary-0;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    header {
+        height: $header-height;
+        background-color: $header-background;
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            a {
+                color: colors.$primary-0;
+                padding: 10px;
+                text-decoration: none;
+                border-radius: 4px;
+                &:visited {
+                    color: colors.$primary-0;
+                    text-decoration: none;
+                }
+                &:hover,
+                &:active,
+                &.active {
+                    color: colors.$primary-1;
+                    background-color: colors.$accent-1;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    main {
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 100%;
+        @media screen and (min-width: 992px) {
+            max-width: 70svw;
+        }
+        @media screen and (min-width: 2200px) {
+            max-width: 2000px;
+        }
+    }
+
+    h1 {
+        text-align: center;
+    }
+}

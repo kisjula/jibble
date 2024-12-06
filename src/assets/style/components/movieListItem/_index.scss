@@ -1,0 +1,52 @@
+@use './variables' as *;
+
+.movie-list-item {
+    all: unset;
+    display: grid;
+    border: $mli-border;
+    border-radius: $mli-border-radius;
+    overflow: hidden;
+    cursor: pointer;
+
+    .cover {
+        object-fit: cover;
+        height: $mli-cover-height;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: $mli-content-gap;
+        height: $mli-content-height;
+        padding: $mli-content-padding;
+        background-color: $mli-content-background;
+
+        .btn {
+            position: absolute;
+            top: 0;
+            transform: translateY(-50%);
+            right: 15px;
+            border: $mli-fav-border;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        h3 {
+            margin: 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+    }
+}

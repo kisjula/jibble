@@ -1,0 +1,9 @@
+@use './variables' as *;
+.input {
+    all: unset;
+    height: $input-height;
+    border-radius: $input-radius;
+    color: $input-color;
+    background-color: $input-background;
+    padding: $input-padding;
+}

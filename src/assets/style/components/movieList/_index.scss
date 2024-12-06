@@ -1,0 +1,25 @@
+@use './variables' as *;
+@use '@/assets/style/settings/breakpoints';
+
+.list-view-wrapper {
+    .search-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $ml-search-gap;
+        margin-bottom: $ml-search-mb;
+    }
+
+    .list-view {
+        display: grid;
+        gap: $ml-list-gap;
+        margin-bottom: $ml-list-mb;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        @media screen and (min-width: breakpoints.$sm-min) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @media screen and (min-width: breakpoints.$md-min) {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+}

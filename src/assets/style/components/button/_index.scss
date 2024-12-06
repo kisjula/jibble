@@ -1,0 +1,45 @@
+@use './variables' as *;
+.btn {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: $btn-color;
+    background-color: $btn-background;
+    border-radius: $btn-radius;
+    height: $btn-height;
+    cursor: pointer;
+    transition:
+        color 0.2s,
+        background-color 0.2s;
+    &.btn-icon {
+        width: $btn-icon-width;
+    }
+    &:visited {
+        color: $btn-color;
+    }
+    &:hover {
+        color: $btn-hover-color;
+        background-color: $btn-active-background;
+    }
+    &:active {
+        color: $btn-active-color;
+        background-color: $btn-active-background;
+    }
+    &:disabled {
+        color: $btn-disabled-color;
+        background-color: $btn-disabled-background;
+        cursor: default;
+        cursor: default;
+    }
+    &.btn-lg {
+        height: $btn-lg-height;
+        &.btn-icon {
+            width: $btn-lg-icon-width;
+        }
+    }
+    &.btn-round {
+        border-radius: 9999999px;
+    }
+}

@@ -1,0 +1,16 @@
+@use '@/assets/style/settings/colors';
+
+$btn-color: colors.$primary-0;
+$btn-background: colors.$accent-1;
+$btn-height: 30px;
+$btn-radius: 4px;
+$btn-icon-width: $btn-height;
+$btn-hover-color: colors.$primary-1;
+$btn-active-background: colors.$accent-2;
+$btn-active-color: colors.$primary-1;
+$btn-active-background: colors.$accent-2;
+$btn-disabled-color: colors.$primary-2;
+$btn-disabled-background: colors.$accent-0;
+
+$btn-lg-height: 40px;
+$btn-lg-icon-width: 40px;

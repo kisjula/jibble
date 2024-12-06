@@ -1,0 +1,11 @@
+@use '@/assets/style/settings/colors';
+
+$mli-border: 1px solid colors.$primary-0;
+$mli-border-radius: 10px;
+$mli-cover-height: 150px;
+$mli-content-gap: 10px;
+$mli-content-height: 80px;
+$mli-content-padding: 15px;
+$mli-content-background: colors.$accent-1;
+
+$mli-fav-border: 1px solid colors.$primary-0;
