@@ -19,13 +19,14 @@ const editPage = (
 ) => {
     e.preventDefault()
     e.stopPropagation()
+    const value = e.target.textContent
     if (
-        isNaN(parseInt(e.target.textContent || '1')) ||
-        e.target.textContent === route.params.page ||
-        (!e.target.textContent && route.params.page === '1')
+        isNaN(parseInt(value || '1')) ||
+        value === route.params.page ||
+        (!value && route.params.page === '1')
     )
         return
-    navigateTo(parseInt(e.target.textContent || '1'))
+    navigateTo(parseInt(value || '1'))
 }
 </script>
 

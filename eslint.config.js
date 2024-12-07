@@ -5,7 +5,7 @@ import pluginVitest from '@vitest/eslint-plugin'
 import pluginCypress from 'eslint-plugin-cypress/flat'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
-console.log(pluginVue)
+
 export default [
     {
         name: 'app/files-to-lint',

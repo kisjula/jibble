@@ -14,4 +14,5 @@ interface Movie {
     Year: number
     imdbID: string
 }
+
 export type { MovieResult, Movie, Meta }

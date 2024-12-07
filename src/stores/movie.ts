@@ -4,6 +4,8 @@ import { defineStore } from 'pinia'
 import type { MovieResult, Movie, Meta } from '@/interfaces/movie.interface'
 import { useStorage } from '@vueuse/core'
 
+const API = 'https://jsonmock.hackerrank.com/api/movies/search/'
+
 export const useMovieStore = defineStore('movie', () => {
     const favouriteListData: Ref<Movie[]> = useStorage('favouriteList', [])
     const listData: Ref<Movie[]> = ref([])
@@ -26,12 +28,11 @@ export const useMovieStore = defineStore('movie', () => {
     }
 
     async function getList(title?: string, page?: string) {
-        const response: Response = await fetch(
-            `https://jsonmock.hackerrank.com/api/movies/search/?page=${page || 1}${title ? `&Title=${title}` : ''}`,
-            {
-                headers: { 'Content-type': 'application/json' },
-            },
-        )
+        let URL = `${API}?page=${page || 1}`
+        if (title) URL = `${URL}&Title=${title}`
+        const response: Response = await fetch(URL, {
+            headers: { 'Content-type': 'application/json' },
+        })
         const result: MovieResult = await response.json()
         listData.value = result.data
         metaData.value = {

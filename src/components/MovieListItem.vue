@@ -16,7 +16,6 @@ const isFavourite = computed(() => !!movieStore.favouriteList.find((movie) => mo
 
 const favouriteMovie = (e:Event) => {
     e.preventDefault()
-    // console.log(props.model)
     movieStore.favouriteMovie(props.model)
 }
 </script>
