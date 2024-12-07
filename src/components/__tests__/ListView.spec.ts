@@ -10,7 +10,7 @@ describe('ListView', () => {
         setActivePinia(createPinia())
     })
     const searchInput = '[data-testid=search-input]'
-    const search = '[data-testid=search-search]'
+    const search = '[data-testid=search-button]'
     const searchClear = '[data-testid=search-clear]'
     const movieListItem = '[data-testid=movie-list-item]'
 
