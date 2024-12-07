@@ -36,7 +36,7 @@ const editPage = (
         font-awesome-icon(:icon="faChevronLeft")
     button.btn.btn-icon(@click="navigateTo(movieStore.meta.page - 1)"  :disabled="movieStore.meta.page <= 1" data-testid="pagination-prev")
         font-awesome-icon(:icon="faChevronLeft")
-    span(contenteditable @blur="editPage" @keydown.enter="editPage") {{movieStore.meta.page}}
+    span(contenteditable @blur="editPage" @keydown.enter="editPage" data-testid="pagination-page") {{movieStore.meta.page}}
     button.btn.btn-icon(@click="navigateTo(movieStore.meta.page + 1)" :disabled="movieStore.meta.total_pages <= movieStore.meta.page" data-testid="pagination-next") 
         font-awesome-icon(:icon="faChevronRight")
     button.btn.btn-icon(@click="navigateTo(movieStore.meta.total_pages)" :disabled="movieStore.meta.total_pages <= movieStore.meta.page"  data-testid="pagination-last")

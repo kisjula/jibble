@@ -40,7 +40,7 @@ const clearSearch = () => {
     h1 Browse movies
     .search-wrapper
         input.input(v-model="search" placeholder="Search" data-testid="search-input")  
-        button.btn.btn-icon(@click="onSearch" :disabled="!search" data-testid="search-search") 
+        button.btn.btn-icon(@click="onSearch" :disabled="!search" data-testid="search-button") 
             font-awesome-icon(:icon="faMagnifyingGlass")
         button.btn.btn-icon(@click="clearSearch" :disabled="!search" data-testid="search-clear") 
             font-awesome-icon(:icon="faTimes")

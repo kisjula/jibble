@@ -22,7 +22,7 @@ const favouriteMovie = (e:Event) => {
 </script>
 
 <template lang="pug">
-a.movie-list-item(:href="`https://www.imdb.com/title/${model.imdbID}/`" target="_blank")
+a.movie-list-item(:href="`https://www.imdb.com/title/${model.imdbID}/`" :id="model.imdbID" target="_blank")
     .cover
         img(src="/movie.png")
     .content       
