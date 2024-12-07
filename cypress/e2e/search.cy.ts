@@ -14,9 +14,11 @@ describe('Pagination test', () => {
     const searchClear = '[data-testid=search-clear]'
 
     it('passes', () => {
+        cy.intercept('GET', `${API}?page=1`).as('getMovies')
+        cy.intercept('GET', `${API}?page=1&Title=ironman`).as('getIronman')
+
         cy.visit('/')
 
-        cy.intercept('GET', `${API}?page=1`).as('getMovies')
         cy.wait(['@getMovies'])
 
         cy.get(searchInput).type('ironman')
@@ -24,7 +26,6 @@ describe('Pagination test', () => {
         cy.get(searchButton)
             .click()
             .then(() => {
-                cy.intercept('GET', `${API}?page=1&Title=ironman`).as('getIronman')
                 cy.wait('@getIronman').its('response.statusCode').should('be.oneOf', [200, 304])
             })
     })

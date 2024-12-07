@@ -17,9 +17,9 @@ describe('Pagination test', () => {
     const starRegular = '[data-testid=star-regular]'
 
     it('passes', () => {
-        cy.visit('/')
-
         cy.intercept('GET', `${API}?page=1`).as('getMovies')
+
+        cy.visit('/')
 
         cy.wait(['@getMovies'])
         cy.get(toFavourites).click()

@@ -17,8 +17,11 @@ describe('Pagination test', () => {
     const pageIndicator = '[data-testid=pagination-page]'
     it('passes', () => {
         let page = 1
+        for (let i = 1; i <= PAGINATION_LIMIT; i++) {
+            cy.intercept('GET', `${API}?page=${i}`).as(`getMovies${i}`)
+        }
+
         cy.visit('/')
-        cy.intercept('GET', `${API}?page=1`).as('getMovies1')
 
         cy.wait(['@getMovies1']).then(() => {
             cy.get(toFirst).should('exist')
@@ -42,9 +45,6 @@ describe('Pagination test', () => {
                                 .click()
                                 .then(() => {
                                     page++
-                                    cy.intercept('GET', `${API}?page=${page}`).as(
-                                        `getMovies${page}`,
-                                    )
                                     cy.wait([`@getMovies${page}`]).then(nextPage)
                                 })
                         }
