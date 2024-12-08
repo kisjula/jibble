@@ -37,7 +37,7 @@ describe('Pagination test', () => {
                                 .click()
                                 .then(() => {
                                     cy.wait([`@getMovies1`]).then(() => {
-                                        cy.get(pageIndicator).contains('1')
+                                        cy.get(pageIndicator).should('have.value', 1)
                                     })
                                 })
                         } else {
