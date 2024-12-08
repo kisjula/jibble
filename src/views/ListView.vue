@@ -25,7 +25,8 @@ watch(route, (route) => {
 });
 
 const onSearch = () => {
-    router.replace({params: {page: 1}, query: {search: search.value}})
+    if(route.query.search !== search.value?.toString())
+        router.replace({params: {page: 1}, query: {search: search.value || undefined}})
 }
 
 const clearSearch = () => {
@@ -33,16 +34,17 @@ const clearSearch = () => {
     router.replace({params: {page: 1},  query: {search: undefined}})
 }
 
+
 </script>
 
 <template lang="pug">
 .list-view-wrapper
     h1 Browse movies
     .search-wrapper
-        input.input(v-model="search" placeholder="Search" data-testid="search-input")  
+        input.input(v-model="search" @keydown.enter="onSearch" placeholder="Search" data-testid="search-input")  
         button.btn.btn-icon(@click="onSearch" :disabled="!search" data-testid="search-button") 
             font-awesome-icon(:icon="faMagnifyingGlass")
-        button.btn.btn-icon(@click="clearSearch" :disabled="!search" data-testid="search-clear") 
+        button.btn.btn-icon(@click="clearSearch" :disabled="!search && !route.query.search" data-testid="search-clear") 
             font-awesome-icon(:icon="faTimes")
     .list-view  
         movie-list-item(v-for="item in movieStore.list" :model="item" data-testid="movie-list-item" :key="`movieListItem-${item.imdbID}`")

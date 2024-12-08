@@ -5,11 +5,12 @@
     gap: 10px;
     padding: 0 10px;
     margin: 0 auto;
-    span {
+    input {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 30px;
+        text-align: center;
+        width: 50px;
         line-height: 1;
         font-size: 20px;
     }

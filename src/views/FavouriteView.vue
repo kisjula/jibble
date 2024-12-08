@@ -5,8 +5,6 @@ import MovieListItem from '@/components/MovieListItem.vue'
 
 const movieStore = useMovieStore()
 
-
-
 </script>
 
 <template lang="pug">

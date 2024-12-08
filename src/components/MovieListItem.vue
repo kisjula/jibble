@@ -29,8 +29,5 @@ a.movie-list-item(:href="`https://www.imdb.com/title/${model.imdbID}/`" :id="mod
         h3 {{model.Title}}
         button.btn.btn-lg.btn-round.btn-icon(@click="favouriteMovie" data-testid="set-favourite")
             transition(name="fade" mode="out-in")
-                font-awesome-icon(v-if="isFavourite" :icon="fasStar" data-testid="star-solid")
-                font-awesome-icon(v-else :icon="farStar" data-testid="star-regular")
-        
-
-</template>
+                font-awesome-icon(:icon="isFavourite ? fasStar : farStar" :data-testid="isFavourite ? 'star-solid' : 'star-regular'")
+        </template>
