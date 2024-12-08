@@ -9,6 +9,9 @@ jobs:
     build:
         runs-on: ubuntu-latest
 
+        env:
+            GOOGLE_APPLICATION_CREDENTIALS: google-application-credentials.json
+
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
@@ -21,6 +24,11 @@ jobs:
             - name: Install Firebase CLI
               run: npm install -g firebase-tools
 
+            - name: Prepare Google Application Credentials
+              shell: bash
+              run: |
+                  echo "${{ secrets.DEV_GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}" | base64 --decode > "google-application-credentials.json"
+
             - name: Authenticate with Firebase
               run: firebase login:ci --interactive
               env:
@@ -28,3 +36,8 @@ jobs:
 
             - name: Deploy to Firebase Hosting
               run: firebase deploy --only hosting
+
+            - name: Remove credentials file
+              if: success() || failure()
+              run: |
+                  rm google-application-credentials.json
