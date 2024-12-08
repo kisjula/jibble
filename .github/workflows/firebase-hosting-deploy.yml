@@ -29,11 +29,6 @@ jobs:
               run: |
                   echo "${{ secrets.DEV_GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}" | base64 --decode > "google-application-credentials.json"
 
-            - name: Authenticate with Firebase
-              run: firebase login:ci --interactive
-              env:
-                  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
             - name: Deploy to Firebase Hosting
               run: firebase deploy --only hosting
 
